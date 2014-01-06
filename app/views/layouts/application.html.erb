@@ -6,7 +6,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body id="store">
 
     <div id="banner">
       <%= image_tag("logo.png") %>
@@ -14,10 +14,12 @@
     </div>
     <div id="columns">
       <div id="side">
-        <span>You accessed this page on : <%= Time.new.strftime("%d/%m/%Y at %I:%M %p") %></span><br/><br/>
-        <a href="http://www....">Home</a><br />
-        <a href="http://www..../faq">Questions</a><br /> <a href="http://www..../news">News</a><br />
-        <a href="http://www..../contact">Contact</a><br />
+
+        <div id="cart">
+          <%= render(@cart) %>
+        </div>
+        <br/>
+        <span>Last Access: <%= Time.new.strftime("%d/%m/%Y at %I:%M %p") %></span><br/><br/>
       </div>
       <div id="main">
         <%= yield %>
